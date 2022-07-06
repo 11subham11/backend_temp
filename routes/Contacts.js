@@ -1,21 +1,13 @@
 const express = require("express");
 const router = express.Router();
+const contactController = require("../controllers/contactController");
 
-const {Contacts} = require("../models");
+  // Contact Us Route to post data
+  router.post("/contacts", contactController.PostContact );
 
-  router.post("/contacts", async (req, res) => {
-    try {
-      const data = req.body
-      const contact = await Contacts.create(data);
-      if(contact) {
-        res.json({ message: "Thanks For Contacting"})
-      } else {
-          res.json({error: "error"})
-      }
-     
-    } catch (err) {
-      console.log(err);
-    }
-  });
+  // Contact Us Route to Get Data
+  router.get("/contacts", contactController.GetContact );
+
+
 
   module.exports = router;
