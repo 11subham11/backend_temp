@@ -28,6 +28,9 @@ app.use((req, res, next) => {
 const contactsRouter = require("./routes/Contacts");
 app.use("/contacts", contactsRouter);
 
+const usersRouter = require("./routes/Users");
+app.use("/users", usersRouter);
+
 
 // Sync sequelize every time it runs
 
